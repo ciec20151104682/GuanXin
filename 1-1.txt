@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+int main()
+
+{
+	void *malloc(size_t size);
+	char*str;
+	str=(char*)malloc(sizeof(char));
+	FILE*fp=fopen("export.gpx","r");
+	if(fp==NULL)
+	{
+		printf("wrong!");
+		return-1;
+	}	
+	else
+	{
+		while(fscanf(fp,"%s",str)!=EOF)
+		{
+			printf("%s\n",str);
+		}
+		fclose(fp);
+		free(str);
+	}
+	return 0;
+}
